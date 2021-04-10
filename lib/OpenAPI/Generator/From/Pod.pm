@@ -28,6 +28,8 @@ sub generate {
   my @defs;
   push @defs, $self->_parse_file($_) for @files;
 
+  return unless @defs;
+
   merge_definitions(@defs);
 }
 
@@ -38,10 +40,14 @@ sub _parse_file {
   my $struct = $parser->parse_file($file)->root;
   my $openapi_node = $self->_extract_openapi_node($struct);
 
+  unless ($openapi_node) {
+    return;
+  }
+
   my %common_definition = (
     paths => {},
     components => {
-      schemes => {},
+      schemas => {},
       parameters => {},
       securitySchemes => {},
     },
@@ -61,7 +67,7 @@ sub _parse_file {
 
     if ($item_name =~ /^\s*SCHEMA/) {
       my $schema_name = $self->_extract_component_name($item_name);
-      $common_definition{components}{schemes}{$schema_name} = $definition;
+      $common_definition{components}{schemas}{$schema_name} = $definition;
     }
     elsif ($item_name =~ /^\s*PARAM/) {
       my $param_name = $self->_extract_component_name($item_name);

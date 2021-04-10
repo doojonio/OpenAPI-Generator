@@ -25,7 +25,7 @@ components:
       schema:
         minimum: 1
         type: integer
-  schemes:
+  schemas:
     User:
       properties:
         username:
@@ -97,7 +97,19 @@ components:
       schema:
         minimum: 1
         type: integer
-  schemas: {}
+  schemas:
+    ProductInfo:
+      properties:
+        cost:
+          type: number
+        name:
+          type: string
+      type: object
+    User:
+      properties:
+        username:
+          type: string
+      type: object
   securitySchemes:
     ApiKey:
       description: api key for my API
@@ -184,6 +196,12 @@ paths:
 EOF
 
   is_deeply($expected, $got);
+};
+
+subtest check_file_with_no_pod => sub {
+
+  my $res = openapi_from(pod => {src => "$samples/Empty.pm"});
+  is $res, undef, 'nothing has been generated';
 };
 
 done_testing
