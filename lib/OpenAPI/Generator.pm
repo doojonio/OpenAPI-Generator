@@ -7,7 +7,7 @@ use warnings;
 use Exporter qw(import);
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @EXPORT = qw(openapi_from);
 
 sub openapi_from {
@@ -27,11 +27,11 @@ __END__
 
 =head1 NAME
 
-OpenAPI::Generator
+OpenAPI::Generator - generate openapi definition
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 
@@ -39,7 +39,7 @@ Generate openapi definitions from various places.
 
   use OpenAPI::Generator;
 
-  my $openapi_def = openapi_from(pod => {});
+  my $openapi_def = openapi_from(pod => {src => 'Controller.pm'});
 
 =head1 EXPORTS
 

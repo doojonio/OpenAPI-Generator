@@ -152,6 +152,42 @@ But also you can use it directly:
   my $generator = OpenAPI::Generator::From::Pod->new;
   my $openapi_def = $generator->generate({src => 'Controllers/'})
 
+=head1 POD FORMAT
+
+  Pod format should looks like that:
+
+  =head1 NAME
+
+    Controller - some info about this package
+
+  =head1 OPENAPI # after this header start openapi block
+
+  =over 2 # this is where openapi block starts
+
+  =item GET /some/route # define openapi route
+
+    parameters:
+      ...
+
+  =item SCHEMA User # define openapi components/schemes element
+
+    type: object
+    properites:
+      ...
+
+  =item SECURITY Cookie # define security schema
+
+    ...
+
+  =item PARAM userId # define parameter
+
+    name: userId
+    in: query
+    schema:
+      type: integer
+
+  =back # this is where openapi block ends
+
 =head1 METHODS
 
 =over 4
