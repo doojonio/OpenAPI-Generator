@@ -10,6 +10,17 @@ my %WriteMakefileArgs = (
   ABSTRACT_FROM  => 'lib/OpenAPI/Generator.pm',
   LICENSE      => 'artistic_2',
   MIN_PERL_VERSION => '5.012',
+  META_MERGE => {
+    resources => {
+      bugtracker => {web => 'https://github.com/doojonio/OpenAPI-Generator/issues'},
+      license => ['http://www.opensource.org/licenses/artistic-license-2.0'],
+      repository => {
+        type => 'git',
+        url => 'https://github.com/doojonio/OpenAPI-Generator.git',
+        web => 'https://github.com/doojonio/OpenAPI-Generator',
+      },
+    }
+  },
   CONFIGURE_REQUIRES => {
     'ExtUtils::MakeMaker' => '0',
   },
