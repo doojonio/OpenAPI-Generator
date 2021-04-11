@@ -73,6 +73,7 @@ paths:
       responses:
         200:
           description: response
+
 EOF
 
   is_deeply($got, $expected);
@@ -193,6 +194,7 @@ paths:
       responses:
         200:
           description: response
+
 EOF
 
   is_deeply($expected, $got);
