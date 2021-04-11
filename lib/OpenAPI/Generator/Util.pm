@@ -89,9 +89,7 @@ OpenAPI::Generator::Util - subroutines to manipulate openapi schemes
 
 =item merge_definitions(@definitions)
 
-  # using OpenAPI::Generator::FromPod
-  openapi_from(pod => {src => './Controller.pm'})
-  openapi_from(pod => {src => './Controllers/'})
+Merge several OpenAPI definitions into one big. Be careful with duplicate routes and components
 
 =back
 
@@ -107,7 +105,7 @@ Please report any bugs or feature requests to C<https://github.com/doojonio/Open
 
 You can find documentation for this module with the perldoc command.
 
-  perldoc OpenAPI::Generator
+  perldoc OpenAPI::Generator::Util
 
 =head1 LICENSE AND COPYRIGHT
 

@@ -154,15 +154,21 @@ But also you can use it directly:
 
 =head1 POD FORMAT
 
-  Pod format should looks like that:
+Pod format should look like that:
+
+Some other pod for your package:
 
   =head1 NAME
 
     Controller - some info about this package
 
-  =head1 OPENAPI # after this header start openapi block
+After header 'OPENAPI' and '=over' OpenAPI definition block starts
 
-  =over 2 # this is where openapi block starts
+  =head1 OPENAPI
+
+  =over 2
+
+List the elements of your OpenAPI definition
 
   =item GET /some/route # define openapi route
 
@@ -186,7 +192,9 @@ But also you can use it directly:
     schema:
       type: integer
 
-  =back # this is where openapi block ends
+After this '=back' whole OpenAPI block ends
+
+  =back
 
 =head1 METHODS
 
@@ -217,7 +225,7 @@ Using directory of Perl modules
 
 =item src
 
-  File path to module/directory of modules to read pod from
+File path to module/directory of modules to read pod from
 
 =back
 

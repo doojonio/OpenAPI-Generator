@@ -197,7 +197,7 @@ paths:
 
 EOF
 
-  is_deeply($expected, $got);
+  is_deeply($got, $expected);
 };
 
 subtest check_file_with_no_pod => sub {
