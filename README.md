@@ -1,3 +1,4 @@
+![linux](https://github.com/doojonio/OpenAPI-Generator/actions/workflows/linux-ci.yml/badge.svg)
 # OpenAPI-Generator
 
 Generate OpenAPI definitions from various places (currently only from plain old documentation)
