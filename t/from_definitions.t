@@ -1,12 +1,12 @@
 #!perl
-use 5.006;
+
 use strict;
 use warnings FATAL => 'all';
 use Test::More;
 use FindBin qw($RealBin);
 
 use OpenAPI::Generator;
-use YAML qw(Load);
+use CPAN::Meta::YAML qw(Load);
 
 my $samples = "$RealBin/samples/FromDefinitions";
 

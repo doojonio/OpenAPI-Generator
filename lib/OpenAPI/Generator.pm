@@ -1,13 +1,12 @@
 package OpenAPI::Generator;
 
-use 5.006;
 use strict;
 use warnings;
 
 use Exporter qw(import);
 use Carp;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 our @EXPORT = qw(openapi_from);
 
 sub openapi_from {
@@ -31,7 +30,7 @@ OpenAPI::Generator - generate openapi definition
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =head1 SYNOPSIS
 

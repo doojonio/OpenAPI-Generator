@@ -1,6 +1,5 @@
 package OpenAPI::Generator::From::Pod;
 
-use 5.012;
 use strict;
 use warnings;
 
@@ -8,9 +7,22 @@ use Carp;
 use File::Find;
 use OpenAPI::Generator::Util qw(merge_definitions);
 use Pod::Simple::SimpleTree;
-use YAML qw(Load);
 
 use constant OPENAPI_HEAD_NAME => 'OPENAPI';
+
+BEGIN {
+
+  if (eval { require YAML::XS }) {
+    YAML::XS->import('Load');
+  }
+  elsif (eval { require YAML }) {
+    YAML->import('Load');
+  }
+  else {
+    CPAN::Meta::YAML->import('Load');
+  }
+
+}
 
 sub new {
 

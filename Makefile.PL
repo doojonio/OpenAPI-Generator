@@ -1,4 +1,4 @@
-use 5.006;
+;
 use strict;
 use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
@@ -9,8 +9,10 @@ my %WriteMakefileArgs = (
   VERSION_FROM   => 'lib/OpenAPI/Generator.pm',
   ABSTRACT_FROM  => 'lib/OpenAPI/Generator.pm',
   LICENSE      => 'artistic_2',
-  MIN_PERL_VERSION => '5.012',
+  MIN_PERL_VERSION => '5.14',
   META_MERGE => {
+    dynamic_config => 0,
+    'meta-spec' => { version => 2 },
     resources => {
       bugtracker => {web => 'https://github.com/doojonio/OpenAPI-Generator/issues'},
       license => ['http://www.opensource.org/licenses/artistic-license-2.0'],
@@ -27,18 +29,7 @@ my %WriteMakefileArgs = (
   TEST_REQUIRES => {
     'Test::More' => '0',
   },
-  PREREQ_PM => {
-    'Carp'                    => '1.52',
-    'Exporter'                => '5.76',
-    'File::Find'              => '1.39',
-    'JSON::PP'                => '4.06',
-    'Pod::Simple::SimpleTree' => '3.42',
-    'YAML'                    => '1.30',
-    'constant'                => '1.33',
-    'feature'                 => '1.63',
-    'strict'                  => '1.12',
-    'warnings'                => '1.51',
-  },
+  PREREQ_PM => {},
   dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
   clean => { FILES => 'OpenAPI-Generator-*' },
 );

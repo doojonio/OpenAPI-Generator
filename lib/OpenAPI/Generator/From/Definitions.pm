@@ -1,14 +1,34 @@
 package OpenAPI::Generator::From::Definitions;
 
-use 5.012;
 use strict;
 use warnings;
 
 use Carp qw(croak);
 use File::Find;
-use JSON::PP;
-use YAML;
 use OpenAPI::Generator::Util qw(merge_definitions);
+
+BEGIN {
+
+  if (eval { require YAML::XS }) {
+    YAML::XS->import('Load');
+  }
+  elsif (eval { require YAML }) {
+    YAML->import('Load');
+  }
+  else {
+    require CPAN::Meta::YAML;
+    CPAN::Meta::YAML->import('Load');
+  }
+
+  if (eval { require JSON::XS }) {
+    JSON::XS->import('decode_json')
+  }
+  else {
+    require JSON::PP;
+    JSON::PP->import('decode_json');
+  }
+
+}
 
 sub new {
 
@@ -39,10 +59,10 @@ sub generate {
 
 
     if ($file =~ /\.json$/) {
-      push @defs, JSON::PP::decode_json($content);
+      push @defs, decode_json($content);
     }
     else {
-      push @defs, YAML::Load($content);
+      push @defs, Load($content);
     }
   }
 

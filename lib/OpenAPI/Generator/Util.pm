@@ -1,6 +1,5 @@
 package OpenAPI::Generator::Util;
 
-use 5.006;
 use strict;
 use warnings;
 
