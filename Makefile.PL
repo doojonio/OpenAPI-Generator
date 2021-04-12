@@ -9,7 +9,7 @@ my %WriteMakefileArgs = (
   VERSION_FROM   => 'lib/OpenAPI/Generator.pm',
   ABSTRACT_FROM  => 'lib/OpenAPI/Generator.pm',
   LICENSE      => 'artistic_2',
-  MIN_PERL_VERSION => '5.14',
+  MIN_PERL_VERSION => '5.014',
   META_MERGE => {
     dynamic_config => 0,
     'meta-spec' => { version => 2 },
