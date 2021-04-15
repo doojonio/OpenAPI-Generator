@@ -52,7 +52,7 @@ sub generate {
     }
   }
 
-  my @defs = @{ $conf->{definitions} };
+  my @defs = @{ $conf->{definitions} // [] };
 
   for my $file (@files) {
     croak "$file is not readable" unless -r $file;
